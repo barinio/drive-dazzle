@@ -1,9 +1,13 @@
+import { Container } from '../components/Container/Container';
+import { Section } from '../components/Section/Section';
 const HomePage = () => {
-	return (
-		<div>
-			<p>Hello everybody!</p>
-		</div>
-	)
-}
+  return (
+    <Section>
+      <Container>
+        <p>Hello everybody!</p>
+      </Container>
+    </Section>
+  );
+};
 
-export default HomePage
+export default HomePage;

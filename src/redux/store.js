@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { carReducer } from './car/carSlice';
+import { carsReducer } from './cars/carsSlice';
 import {
   persistStore,
   persistReducer,
@@ -12,14 +12,18 @@ import {
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
+import { isOpenModalReducer } from './carInfo/isOpenModalSlice';
+import { carInfoReducer } from './carInfo/carInfoSlice';
 
-const carConfig = {
+const carsConfig = {
   key: 'cars',
   storage,
 };
 
 const rootReducer = combineReducers({
-  car: persistReducer(carConfig, carReducer),
+  cars: persistReducer(carsConfig, carsReducer),
+  isOpenModal: isOpenModalReducer,
+  item: carInfoReducer,
 });
 
 export const store = configureStore({

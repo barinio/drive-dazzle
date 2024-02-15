@@ -1,12 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
-import { catatlogCarsThunk, carInfoThunk } from './carThunk';
+import { catatlogCarsThunk } from './carsThunk';
 
 const initialState = {
-  cars: {
-    id: null,
-    name: null,
-  },
+  cars: [],
   isLoading: false,
   error: null,
 };
@@ -18,7 +15,7 @@ const handlePending = state => {
 const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.authenticated = true;
-  state.cars = payload.cars;
+  state.cars = payload;
 };
 const handleError = (state, { payload }) => {
   state.isLoading = false;
@@ -28,16 +25,14 @@ const handleError = (state, { payload }) => {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
+
   extraReducers: builder =>
     builder
       .addCase(catatlogCarsThunk.fulfilled, handleFulfilled)
-      .addCase(carInfoThunk.fulfilled, handleFulfilled)
 
       .addMatcher(isAnyOf(catatlogCarsThunk.pending), handlePending)
-      .addMatcher(isAnyOf(carInfoThunk.pending), handlePending)
 
-      .addMatcher(isAnyOf(catatlogCarsThunk.rejected), handleError)
-      .addMatcher(isAnyOf(carInfoThunk.rejected), handleError),
+      .addMatcher(isAnyOf(catatlogCarsThunk.rejected), handleError),
 });
 
-export const carReducer = carsSlice.reducer;
+export const carsReducer = carsSlice.reducer;

@@ -1,9 +1,14 @@
-const FavoriteCarsPage = () => {
-	return (
-		<div>
-			<p>This page about Favorite</p>
-		</div>
-	)
-}
+import { Container } from '../components/Container/Container';
+import { Section } from '../components/Section/Section';
 
-export default FavoriteCarsPage
+const FavoriteCarsPage = () => {
+  return (
+    <Section>
+      <Container>
+        <p>FavoriteCarsPage!</p>
+      </Container>
+    </Section>
+  );
+};
+
+export default FavoriteCarsPage;

@@ -8,7 +8,8 @@ export const selectIsLoading = createSelector(
 );
 
 export const selectCarsError = createSelector(selectCars, cars => cars.error);
+
 export const selectCatalogCarsData = createSelector(
   selectCars,
-  auth => auth.cars
+  cars => cars.cars
 );
