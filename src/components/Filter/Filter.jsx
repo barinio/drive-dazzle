@@ -1,5 +1,5 @@
 // import { useDispatch } from 'react-redux';
-import marks from './marks.json';
+import makes from './makes.json';
 import f from './Filter.module.scss';
 // import { setFilter } from 'redux/contacts/filterSlice';
 
@@ -13,7 +13,7 @@ export const Filter = () => {
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        options={marks}
+        options={makes}
         sx={{
           width: 224,
           backgroundColor: '#F7F7FB',

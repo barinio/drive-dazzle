@@ -19,7 +19,7 @@
 	position: absolute;
 	top: 14px;
 	right: 14px;
-
+	z-index: 2;
 	svg {
 		fill: none;
 		stroke: rgba(255, 255, 255, 0.8);
@@ -28,7 +28,24 @@
 			fill: var(--prim-accent-color);
 			stroke: var(--prim-accent-color);
 		}
+		&.active {
+			fill: var(--prim-accent-color);
+			stroke: gold;
+		}
 	}
+}
+.image-container {
+	position: relative;
+}
+.imageContainer::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 268px;
+	background: linear-gradient(to bottom, rgba(18, 20, 23, 0.5), rgba(18, 20, 23, 0));
+	border-radius: 14px;
 }
 .carImg {
 	object-fit: cover;

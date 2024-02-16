@@ -2,8 +2,29 @@ import Button from '../Button/Button';
 import item from './CarItem.module.scss';
 import randomImg from '../../images/car.jpeg';
 import icons from '../../images/icons.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/cars/carsSlice';
+import { useEffect, useState } from 'react';
+import { selectFavorites } from '../../redux/cars.selectors';
 
 export const CarItem = ({ car }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleToggleFavorite = () => {
+    if (!isFavorite) {
+      dispatch(addToFavorites(car));
+      setIsFavorite(true);
+    } else {
+      dispatch(removeFromFavorites(id));
+      setIsFavorite(false);
+    }
+  };
+
   const {
     make,
     year,
@@ -17,12 +38,18 @@ export const CarItem = ({ car }) => {
     id,
   } = car;
 
+  useEffect(() => {
+    if (favorites !== null) {
+      const carIsFavorite = favorites.some(e => e.id === id);
+
+      setIsFavorite(carIsFavorite);
+    }
+  }, [favorites, id]);
+
   const addressParts = address.split(', ');
   const classCar = rentalCompany.split(' ');
   const features = functionalities[0].split(' ').slice(0, 2);
   const typeCar = type.toLowerCase();
-
-  const addFavorite = () => {};
 
   return (
     <li className={item.carItem}>
@@ -30,19 +57,26 @@ export const CarItem = ({ car }) => {
         <button
           className={item.favoriteBtn}
           type="button"
-          onClick={addFavorite}
+          onClick={handleToggleFavorite}
         >
-          <svg width="18" height="18">
+          <svg
+            width="18"
+            height="18"
+            className={isFavorite ? item.active : 'heart'}
+          >
             <use href={icons + '#icon-favorite'}></use>
           </svg>
         </button>
-        <img
-          src={img || randomImg}
-          alt={make}
-          width={274}
-          height={268}
-          className={item.carImg}
-        />
+        <div className={item.imageContainer}>
+          <img
+            src={img || randomImg}
+            alt={make}
+            width={274}
+            height={268}
+            loading="lazy"
+            className={item.carImg}
+          />
+        </div>
         <div>
           <div className={item.carMainInfo}>
             <h3>

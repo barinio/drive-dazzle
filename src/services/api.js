@@ -4,9 +4,8 @@ const instance = axios.create({
   baseURL: 'https://65cd0d8add519126b8400979.mockapi.io',
 });
 
-export const requestCatatlogCars = async () => {
-  const { data } = await instance.get('/adverts?page=1&limit=12');
-  // let filteredData = data;
+export const requestCatatlogCars = async (page = 1) => {
+  const { data } = await instance.get(`/adverts?page=${page}&limit=12`);
 
   return data;
 };

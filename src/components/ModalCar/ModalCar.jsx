@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button/Button';
 
-import { selectCarInfo } from '../../redux/cars/cars.selectors';
+import { selectCarInfo } from '../../redux/cars.selectors';
 import { setIsOpenModal } from '../../redux/carInfo/isOpenModalSlice';
 
 import item from '../CarItem/CarItem.module.scss';
@@ -15,12 +15,9 @@ export const ModalCar = () => {
   const carInfo = useSelector(selectCarInfo);
   const dispatch = useDispatch();
 
-  const closeModal = useCallback(
-    e => {
-      dispatch(setIsOpenModal(false));
-    },
-    [dispatch]
-  );
+  const closeModal = useCallback(() => {
+    dispatch(setIsOpenModal(false));
+  }, [dispatch]);
 
   const onBackdrop = e => e.target === e.currentTarget && closeModal();
 

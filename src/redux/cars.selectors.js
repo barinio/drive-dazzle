@@ -16,3 +16,7 @@ export const selectCatalogCarsData = createSelector(
   selectCars,
   cars => cars.cars
 );
+export const selectFavorites = createSelector(
+  selectCars,
+  cars => cars.favorites
+);

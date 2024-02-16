@@ -3,6 +3,7 @@
 @import "./variables.scss";
 @import "./reset.scss";
 @import "../components/Section/Section.modal.scss";
+@import "../components/Loader/Loader.module.scss";
 
 body {
 	margin: 0;
@@ -11,4 +12,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 
 	color: var(--prim-black-color);
+
+	height: 100vh;
 }

@@ -18,6 +18,7 @@ import { carInfoReducer } from './carInfo/carInfoSlice';
 const carsConfig = {
   key: 'cars',
   storage,
+  whitelist: ['favorites'],
 };
 
 const rootReducer = combineReducers({

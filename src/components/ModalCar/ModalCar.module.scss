@@ -49,11 +49,17 @@
 		padding: 40px;
 		width: 541px;
 	}
+
 	svg {
 		position: absolute;
-		top: 16px;
-		right: 16px;
+		top: 5px;
+		right: 5px;
 		stroke: var(--prim-black-color);
+
+		@media (min-width: 570px) {
+			top: 16px;
+			right: 16px;
+		}
 
 		&:is(:hover, :focus) {
 			stroke: var(--prim-accent-color);
