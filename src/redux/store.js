@@ -23,7 +23,7 @@ const carsConfig = {
 const rootReducer = combineReducers({
   cars: persistReducer(carsConfig, carsReducer),
   isOpenModal: isOpenModalReducer,
-  item: carInfoReducer,
+  carInfo: carInfoReducer,
 });
 
 export const store = configureStore({

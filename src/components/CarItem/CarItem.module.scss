@@ -1,4 +1,5 @@
 .carItem {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -12,22 +13,36 @@
 	@media (min-width: 1440) {
 		flex-basis: calc((100% - 87px) / 4);
 	}
-
-	img {
-		object-fit: cover;
-		border-radius: 14px;
-		margin-bottom: 14px;
-	}
 }
 
-.carMainInfo {
+.favoriteBtn {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+
+	svg {
+		fill: none;
+		stroke: rgba(255, 255, 255, 0.8);
+
+		&:hover {
+			fill: var(--prim-accent-color);
+			stroke: var(--prim-accent-color);
+		}
+	}
+}
+.carImg {
+	object-fit: cover;
+	border-radius: 14px;
+	margin-bottom: 14px;
+}
+
+.carMainInfo,
+.title {
 	display: flex;
 	justify-content: space-between;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.5;
-
-	margin-bottom: 8px;
 
 	span {
 		font-family: Inter;
@@ -35,10 +50,15 @@
 	}
 }
 
+.title {
+	font-size: 18px;
+}
+
 .carAdditionalInfo {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
+	margin-top: 8px;
 
 	ul {
 		display: flex;
@@ -66,4 +86,7 @@
 			opacity: 0.5;
 		}
 	}
+}
+.carType {
+	text-transform: capitalize;
 }

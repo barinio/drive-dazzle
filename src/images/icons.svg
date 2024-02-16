@@ -9,5 +9,12 @@
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M20.251 24.125c0.92 0 1.666-0.769 1.666-1.717s-0.746-1.718-1.666-1.718-1.666 0.769-1.666 1.718c0 0.948 0.746 1.717 1.666 1.717z"></path>
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M4.697 6.282c0.723 0 1.31-0.592 1.31-1.323s-0.586-1.323-1.31-1.323-1.31 0.592-1.31 1.323c0 0.731 0.586 1.323 1.31 1.323z"></path>
 </symbol>
+<symbol id="icon-x" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M24 8l-16 16"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M8 8l16 16"></path>
+</symbol>
+<symbol id="icon-favorite" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M27.787 6.147c-0.681-0.681-1.49-1.222-2.38-1.591s-1.844-0.559-2.807-0.559c-0.963 0-1.917 0.19-2.807 0.559s-1.698 0.909-2.38 1.591l-1.413 1.413-1.413-1.413c-1.376-1.376-3.241-2.148-5.187-2.148s-3.811 0.773-5.187 2.148c-1.376 1.376-2.148 3.241-2.148 5.187s0.773 3.811 2.148 5.187l11.787 11.787 11.787-11.787c0.681-0.681 1.222-1.49 1.591-2.38s0.559-1.844 0.559-2.807c0-0.963-0.19-1.917-0.559-2.807s-0.909-1.699-1.591-2.38z"></path>
+</symbol>
 </defs>
 </svg>

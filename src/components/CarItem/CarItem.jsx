@@ -1,6 +1,8 @@
 import Button from '../Button/Button';
 import item from './CarItem.module.scss';
 import randomImg from '../../images/car.jpeg';
+import icons from '../../images/icons.svg';
+
 export const CarItem = ({ car }) => {
   const {
     make,
@@ -13,21 +15,39 @@ export const CarItem = ({ car }) => {
     address,
     rentalPrice,
     id,
-    // description,
   } = car;
-  const addressParts = address?.split(', ');
-  const classCar = rentalCompany?.split(' ');
-  const features = functionalities[0]?.split(' ').slice(0, 2);
+
+  const addressParts = address.split(', ');
+  const classCar = rentalCompany.split(' ');
+  const features = functionalities[0].split(' ').slice(0, 2);
+  const typeCar = type.toLowerCase();
+
+  const addFavorite = () => {};
 
   return (
     <li className={item.carItem}>
       <div>
-        <img src={img || randomImg} alt={make} width={274} height={268} />
+        <button
+          className={item.favoriteBtn}
+          type="button"
+          onClick={addFavorite}
+        >
+          <svg width="18" height="18">
+            <use href={icons + '#icon-favorite'}></use>
+          </svg>
+        </button>
+        <img
+          src={img || randomImg}
+          alt={make}
+          width={274}
+          height={268}
+          className={item.carImg}
+        />
         <div>
           <div className={item.carMainInfo}>
-            <p>
+            <h3>
               {make} {model && <span>{model}</span>}, {year}
-            </p>
+            </h3>
             <p>{rentalPrice}</p>
           </div>
           <div className={item.carAdditionalInfo}>
@@ -47,7 +67,7 @@ export const CarItem = ({ car }) => {
             </ul>
             <ul>
               <li>
-                <p>{type}</p>
+                <p className={item.carType}>{typeCar}</p>
               </li>
               <li>
                 <p>{model}</p>
