@@ -28,17 +28,6 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    reducers: {
-      addToFavorites(state, action) {
-        state.favorites.push(action.payload);
-      },
-      removeFromFavorites(state, action) {
-        state.favorites = state.favorites.filter(
-          car => car.id !== action.payload
-        );
-      },
-    },
-
     addToFavorites(state, action) {
       state.favorites.push(action.payload);
     },
