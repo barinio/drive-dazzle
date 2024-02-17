@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button/Button';
 
 import { selectCarInfo } from '../../redux/cars.selectors';
-import { setIsOpenModal } from '../../redux/carInfo/isOpenModalSlice';
+import { setIsOpenModal } from '../../redux/slice/isOpenModalSlice';
 
 import item from '../CarItem/CarItem.module.scss';
 import m from './ModalCar.module.scss';

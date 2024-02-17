@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import b from './Button.module.scss';
 
-import { setIsOpenModal } from '../../redux/carInfo/isOpenModalSlice';
-import { setCarInfo } from '../../redux/carInfo/carInfoSlice';
+import { setIsOpenModal } from '../../redux/slice/isOpenModalSlice';
+import { setCarInfo } from '../../redux/slice/carInfoSlice';
 import { useCallback } from 'react';
 
 function Button({ text, car }) {
@@ -13,8 +13,6 @@ function Button({ text, car }) {
     dispatch(setIsOpenModal(true));
   };
 
-  const loadMore = () => {};
-
   const closeModal = useCallback(() => {
     dispatch(setIsOpenModal(false));
     alert(
@@ -22,20 +20,22 @@ function Button({ text, car }) {
     );
   }, [dispatch]);
 
+  const filterSearch = () => {};
+
   return (
     (text === 'Learn more' && (
       <button className={b.btnLearnMore} onClick={() => learnMore(car)}>
         {text}
       </button>
     )) ||
-    (text === 'Load more' && (
-      <button className={b.btnLoadMore} onClick={loadMore}>
-        {text}
-      </button>
-    )) ||
     (text === 'Rental car' && (
       <button className={b.rentalCar} onClick={closeModal}>
         <a href="tel:+380730000000">{text}</a>
+      </button>
+    )) ||
+    (text === 'Search' && (
+      <button className={b.search} onClick={filterSearch}>
+        {text}
       </button>
     ))
   );

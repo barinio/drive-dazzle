@@ -2,9 +2,9 @@ import { Container } from '../components/Container/Container';
 import { Section } from '../components/Section/Section';
 const HomePage = () => {
   return (
-    <Section>
+    <Section title="Home Page!">
       <Container>
-        <p>Hello everybody!</p>
+        <p>Hello everyone!</p>
       </Container>
     </Section>
   );

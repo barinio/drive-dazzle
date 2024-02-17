@@ -9,6 +9,7 @@ export const selectIsLoading = createSelector(
 
 export const selectIsOpenModal = state => state.isOpenModal;
 export const selectCarInfo = state => state.carInfo;
+export const selectNextPage = state => state.nextPage;
 
 export const selectCarsError = createSelector(selectCars, cars => cars.error);
 

@@ -12,8 +12,9 @@ import {
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
-import { isOpenModalReducer } from './carInfo/isOpenModalSlice';
-import { carInfoReducer } from './carInfo/carInfoSlice';
+import { isOpenModalReducer } from './slice/isOpenModalSlice';
+import { carInfoReducer } from './slice/carInfoSlice';
+import { nextPageReducer } from './slice/nextApiPageSlice';
 
 const carsConfig = {
   key: 'cars',
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   cars: persistReducer(carsConfig, carsReducer),
   isOpenModal: isOpenModalReducer,
   carInfo: carInfoReducer,
+  nextPage: nextPageReducer,
 });
 
 export const store = configureStore({

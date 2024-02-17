@@ -1,40 +1,80 @@
-// import { useDispatch } from 'react-redux';
 import makes from './makes.json';
 import f from './Filter.module.scss';
-// import { setFilter } from 'redux/contacts/filterSlice';
 
 import { Autocomplete, TextField } from '@mui/material';
+import Button from '../Button/Button';
 
 export const Filter = () => {
-  // const dispatch = useDispatch();
+  const generatePriceArr = () => {
+    return Array.from({ length: 100 }, (_, index) => ({
+      value: (index + 1) * 10,
+      label: `${(index + 1) * 10}$`,
+    }));
+  };
+  const priceOptions = generatePriceArr();
+
   return (
-    <>
-      <p className={f.caption}>Car brand</p>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={makes}
-        sx={{
-          width: 224,
-          backgroundColor: '#F7F7FB',
-          borderRadius: '14px',
-          border: 'none',
+    <div className={f.container}>
+      <div>
+        <p className={f.caption}>Car brand</p>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={makes}
+          sx={{
+            width: 224,
+            backgroundColor: '#F7F7FB',
+            borderRadius: '14px',
+            border: 'none',
 
-          button: {
-            width: '24px',
-            justifyContent: 'flex-end',
-          },
-          label: { color: 'var(--prim-black-color)' },
+            button: {
+              width: '24px',
+              justifyContent: 'flex-end',
+            },
+            label: { color: 'var(--prim-black-color)' },
 
-          fieldset: { padding: '0px', border: 'none' },
-        }}
-        renderInput={params => <TextField {...params} label="Enter the text" />}
-      />
-    </>
+            fieldset: { padding: '0px', border: 'none' },
+          }}
+          renderInput={params => <TextField {...params} label="Makes" />}
+        />
+      </div>
+      <div>
+        <p className={f.caption}>Price/ 1 hour</p>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={priceOptions}
+          sx={{
+            width: 125,
+            backgroundColor: '#F7F7FB',
+            borderRadius: '14px',
+            border: 'none',
+
+            button: {
+              width: '24px',
+              justifyContent: 'flex-end',
+            },
+            label: { color: 'var(--prim-black-color)' },
+
+            fieldset: { padding: '0px', border: 'none' },
+          }}
+          renderInput={params => <TextField {...params} label="To" />}
+        />
+      </div>
+      <div className={f.mileageWrap}>
+        <p className={f.caption}>Сar mileage / km 10</p>
+        <div className={f.mileage}>
+          <div>
+            <span>From</span>
+            <input type="text" />
+          </div>
+          <div>
+            <span>To</span>
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+      <Button text="Search" />
+    </div>
   );
 };
-
-// '.MuiFormLabel-root.Mui-focused': { display: 'none' },
-// '.MuiOutlinedInput-root': { padding: '0' },
-
-// onChange={e => dispatch(setFilter(e.target.value))}

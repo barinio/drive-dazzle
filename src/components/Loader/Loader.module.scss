@@ -1,12 +1,25 @@
 .loader {
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+	bottom: 0px;
+	left: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation: moveLoader 2s linear infinite;
+}
+
+@keyframes moveLoader {
+	0% {
+		left: 10px;
+	}
+
+	50% {
+		left: calc(100% - 30px);
+	}
+
+	100% {
+		left: 10px;
+	}
 }
 
 .car {

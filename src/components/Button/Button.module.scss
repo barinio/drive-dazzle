@@ -1,5 +1,6 @@
 .btnLearnMore,
-.rentalCar {
+.rentalCar,
+.search {
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.43;
@@ -14,19 +15,11 @@
 		background-color: var(--sec-accent-color);
 	}
 }
-.btnLoadMore {
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 1.5;
-	width: 79px;
-	text-align: center;
-	color: var(--prim-accent-color);
-	margin-top: 100px;
-	text-decoration: underline;
-	&:is(:hover, :focus) {
-		color: var(--sec-accent-color);
-	}
-}
 .rentalCar {
 	width: 168px;
+}
+
+.search {
+	min-width: 136px;
+	height: 48px;
 }

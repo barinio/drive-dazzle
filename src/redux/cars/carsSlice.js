@@ -17,7 +17,7 @@ const handlePending = state => {
 const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.authenticated = true;
-  state.cars = payload;
+  state.cars = state.cars.concat(payload);
 };
 const handleError = (state, { payload }) => {
   state.isLoading = false;
