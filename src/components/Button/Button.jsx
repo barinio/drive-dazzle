@@ -4,8 +4,9 @@ import b from './Button.module.scss';
 import { setIsOpenModal } from '../../redux/slice/isOpenModalSlice';
 import { setCarInfo } from '../../redux/slice/carInfoSlice';
 import { useCallback } from 'react';
+import { setFilter } from '../../redux/slice/filterSlice';
 
-function Button({ text, car }) {
+function Button({ text, car, make }) {
   const dispatch = useDispatch();
 
   const learnMore = car => {
@@ -20,7 +21,9 @@ function Button({ text, car }) {
     );
   }, [dispatch]);
 
-  const filterSearch = () => {};
+  const filterSearch = () => {
+    dispatch(setFilter(make));
+  };
 
   return (
     (text === 'Learn more' && (

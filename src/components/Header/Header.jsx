@@ -18,13 +18,19 @@ function Header() {
           <nav>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className="header-nav-link" to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/catalog">Rental cars</NavLink>
+                <NavLink className="header-nav-link" to="/catalog">
+                  Rental cars
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/favorites">Favorite cars</NavLink>
+                <NavLink className="header-nav-link" to="/favorites">
+                  Favorite cars
+                </NavLink>
               </li>
             </ul>
           </nav>

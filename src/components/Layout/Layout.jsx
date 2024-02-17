@@ -8,6 +8,16 @@ const Layout = () => {
     <>
       <Header />
       <main>
+        <h1
+          style={{
+            opacity: '0',
+            visibility: 'hidden',
+            pointerEvents: 'none',
+            height: '0',
+          }}
+        >
+          Rental Card
+        </h1>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
