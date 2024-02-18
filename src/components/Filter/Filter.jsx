@@ -7,6 +7,11 @@ import { useState } from 'react';
 
 export const Filter = () => {
   const [make, setMake] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [minMileage, setMinMileage] = useState('');
+  const [maxMileage, setMaxMileage] = useState('');
+
+  const filterData = { price, make, minMileage, maxMileage };
 
   const generatePriceArr = () => {
     return Array.from({ length: 100 }, (_, index) => ({
@@ -24,7 +29,7 @@ export const Filter = () => {
           disablePortal
           id="combo-box-demo"
           options={makes}
-          onChange={(event, value) => {
+          onChange={(_e, value) => {
             setMake(value);
           }}
           sx={{
@@ -50,6 +55,10 @@ export const Filter = () => {
           disablePortal
           id="combo-box-demo"
           options={priceOptions}
+          isOptionEqualToValue={(option, value) => option.value === value.value}
+          onChange={(_e, value) => {
+            setPrice(value);
+          }}
           sx={{
             width: 125,
             backgroundColor: '#F7F7FB',
@@ -70,15 +79,31 @@ export const Filter = () => {
         <div className={f.mileage}>
           <div>
             <span>From</span>
-            <input type="text" />
+            <input
+              type="text"
+              pattern="[0-9]*"
+              maxLength="4"
+              value={minMileage}
+              onChange={e => {
+                setMinMileage(e.target.value);
+              }}
+            />
           </div>
           <div>
             <span>To</span>
-            <input type="text" />
+            <input
+              type="text"
+              pattern="[0-9]*"
+              maxLength="4"
+              value={maxMileage}
+              onChange={e => {
+                setMaxMileage(e.target.value);
+              }}
+            />
           </div>
         </div>
       </div>
-      <Button text="Search" make={make} />
+      <Button text="Search" filterData={filterData} />
     </div>
   );
 };

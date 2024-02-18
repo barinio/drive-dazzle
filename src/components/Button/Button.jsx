@@ -6,7 +6,7 @@ import { setCarInfo } from '../../redux/slice/carInfoSlice';
 import { useCallback } from 'react';
 import { setFilter } from '../../redux/slice/filterSlice';
 
-function Button({ text, car, make }) {
+function Button({ text, car, filterData }) {
   const dispatch = useDispatch();
 
   const learnMore = car => {
@@ -22,7 +22,7 @@ function Button({ text, car, make }) {
   }, [dispatch]);
 
   const filterSearch = () => {
-    dispatch(setFilter(make));
+    dispatch(setFilter(filterData));
   };
 
   return (

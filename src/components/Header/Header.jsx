@@ -11,7 +11,7 @@ function Header() {
       <Container>
         <div className={h.container}>
           <NavLink to="/">
-            <svg width="48" height="48">
+            <svg width="48" height="48" className={h.logo}>
               <use href={icons + '#icon-logo'}></use>
             </svg>
           </NavLink>

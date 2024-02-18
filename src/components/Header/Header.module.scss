@@ -1,5 +1,7 @@
 .header {
 	background-color: rgb(255, 255, 134);
+	border-bottom-right-radius: 150px;
+	border-bottom-left-radius: 150px;
 	nav {
 		display: flex;
 		justify-content: center;
@@ -57,4 +59,8 @@
 		top: -1px;
 		left: 0px;
 	}
+}
+
+.logo {
+	fill: var(--sec-accent-color);
 }

@@ -28,23 +28,35 @@ const CarsRentPage = () => {
   }, [dispatch, responseCarData]);
 
   useEffect(() => {
-    if (filter !== null) {
-      const filterList = responseCarData.filter(car => car.make === filter);
+    if (filter.length !== 0) {
+      const { make, price, minMileage, maxMileage } = filter;
+
+      const filterList = responseCarData.filter(car => {
+        const numPrice = parseInt(car.rentalPrice.replace(/\D/g, ''), 10);
+
+        const makeCondition = make !== null ? car.make === make : true;
+        const priceCondition = price !== null ? numPrice <= price.value : true;
+        const minMileageCondition =
+          minMileage !== '' ? Number(car.mileage) >= Number(minMileage) : true;
+        const maxMileageCondition =
+          maxMileage !== '' ? Number(car.mileage) <= Number(maxMileage) : true;
+
+        return (
+          makeCondition &&
+          priceCondition &&
+          minMileageCondition &&
+          maxMileageCondition
+        );
+      });
+
       setCarData(filterList);
-      return;
+    } else {
+      setCarData(responseCarData);
     }
-    setCarData(responseCarData);
   }, [responseCarData, filter]);
 
   const loadMore = () => {
-    nextPage === 2 && dispatch(setNextPage(3));
-    nextPage === 3 && dispatch(setNextPage(4));
-    nextPage === 4 && dispatch(setNextPage(5));
-    nextPage === 5 && dispatch(setNextPage(6));
-    nextPage === 6 && dispatch(setNextPage(7));
-    nextPage === 7 && dispatch(setNextPage(8));
-    nextPage === 8 && dispatch(setNextPage(9));
-    nextPage === 9 && dispatch(setNextPage(10));
+    dispatch(setNextPage(nextPage + 1));
     dispatch(catatlogCarsThunk({ page: nextPage }));
   };
 
@@ -63,11 +75,16 @@ const CarsRentPage = () => {
                 ))}
               </ul>
             )}
-            {carsData.length !== 0 && nextPage < 10 && filter === null && (
+            {(carsData.length !== 0 && nextPage < 10 && filter.length === 0) ||
+            (nextPage < 10 &&
+              filter.make === null &&
+              filter.price === null &&
+              filter.minMileage === '' &&
+              filter.maxMileage === '') ? (
               <button className={rentalCars.btnLoadMore} onClick={loadMore}>
                 Load more
               </button>
-            )}
+            ) : null}
           </div>
         </Container>
       </Section>

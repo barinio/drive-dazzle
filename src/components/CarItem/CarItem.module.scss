@@ -2,8 +2,8 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	// gap: 28px;
+	// justify-content: space-between;
+	gap: 28px;
 	width: 274px;
 	height: 426px;
 
@@ -23,14 +23,17 @@
 	svg {
 		fill: none;
 		stroke: rgba(255, 255, 255, 0.8);
+		transition-duration: 150ms;
+		transition-timing-function: linear;
 
 		&:hover {
 			fill: var(--prim-accent-color);
 			stroke: var(--prim-accent-color);
+			transform: scale(1.3);
 		}
 		&.active {
 			fill: var(--prim-accent-color);
-			stroke: gold;
+			stroke: var(--prim-accent-color);
 		}
 	}
 }
@@ -101,6 +104,9 @@
 		p {
 			text-align: center;
 			opacity: 0.5;
+
+			height: 18px;
+			overflow: hidden;
 		}
 	}
 }
