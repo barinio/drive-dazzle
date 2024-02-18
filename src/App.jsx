@@ -1,7 +1,9 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import { selectIsLoading, selectIsOpenModal } from './redux/cars.selectors';
+
 import { ModalCar } from './components/ModalCar/ModalCar';
 import { Loader } from './components/Loader/Loader';
 
@@ -13,6 +15,7 @@ const FavoriteCarsPage = lazy(() => import('./page/FavoriteCarsPage'));
 function App() {
   const isOpenModal = useSelector(selectIsOpenModal);
   const isLoading = useSelector(selectIsLoading);
+
   useEffect(() => {
     document.body.style.overflow = isOpenModal ? 'hidden' : '';
   }, [isOpenModal]);

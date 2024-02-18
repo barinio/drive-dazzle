@@ -1,14 +1,17 @@
-import Button from '../Button/Button';
-import item from './CarItem.module.scss';
-import randomImg from '../../images/car.jpeg';
-import icons from '../../images/icons.svg';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import Button from '../Button/Button';
 import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/cars/carsSlice';
-import { useEffect, useState } from 'react';
 import { selectFavorites } from '../../redux/cars.selectors';
+
+import randomImg from '../../images/car.jpeg';
+import icons from '../../images/icons.svg';
+
+import item from './CarItem.module.scss';
 
 export const CarItem = ({ car }) => {
   const dispatch = useDispatch();

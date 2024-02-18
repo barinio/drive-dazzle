@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
+
 import { isOpenModalReducer } from './slice/isOpenModalSlice';
 import { carInfoReducer } from './slice/carInfoSlice';
 import { nextPageReducer } from './slice/nextApiPageSlice';

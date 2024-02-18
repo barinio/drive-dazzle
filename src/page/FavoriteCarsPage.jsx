@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
+
 import { Container } from '../components/Container/Container';
 import { Section } from '../components/Section/Section';
-import { selectFavorites } from '../redux/cars.selectors';
 import { CarItem } from '../components/CarItem/CarItem';
+import { NoContent } from '../components/NoContent/NoContent';
+
+import { selectFavorites } from '../redux/cars.selectors';
 
 import rentalCars from './pages.module.scss';
-import { NoContent } from '../components/NoContent/NoContent';
 
 const FavoriteCarsPage = () => {
   const favoriteCars = useSelector(selectFavorites);

@@ -1,15 +1,16 @@
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import Button from '../Button/Button';
 
 import { selectCarInfo } from '../../redux/cars.selectors';
 import { setIsOpenModal } from '../../redux/slice/isOpenModalSlice';
 
-import item from '../CarItem/CarItem.module.scss';
-import m from './ModalCar.module.scss';
-
 import randomImg from '../../images/car.jpeg';
 import icons from '../../images/icons.svg';
+
+import item from '../CarItem/CarItem.module.scss';
+import m from './ModalCar.module.scss';
 
 export const ModalCar = () => {
   const carInfo = useSelector(selectCarInfo);

@@ -36,6 +36,8 @@ And a `Favorite Rental Cars` page.
 > The project is deployed on netlify.com:
 > [Drive Dazzle](https://drive-dazzle.netlify.app/)
 
+[Figma](https://www.figma.com/file/XhC8FSCfAkraEF5l7Hx4fL/Test?type=design&node-id=0%3A1&mode=design&t=i35KsHCSIyGSn1ML-1)
+
 **_Nice wheels of choice!😉_**
 
 [^ Up to start ^](#start)

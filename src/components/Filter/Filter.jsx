@@ -1,9 +1,10 @@
+import { useState } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
+
+import Button from '../Button/Button';
+
 import makes from './makes.json';
 import f from './Filter.module.scss';
-
-import { Autocomplete, TextField } from '@mui/material';
-import Button from '../Button/Button';
-import { useState } from 'react';
 
 export const Filter = () => {
   const [make, setMake] = useState(null);

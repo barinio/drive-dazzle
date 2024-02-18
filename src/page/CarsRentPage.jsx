@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Container } from '../components/Container/Container';
 import { Section } from '../components/Section/Section';
-import { catatlogCarsThunk } from '../redux/cars/carsThunk';
+import { CarItem } from '../components/CarItem/CarItem';
+import { Filter } from '../components/Filter/Filter';
+import { NoContent } from '../components/NoContent/NoContent';
+
 import {
   selectCatalogCarsData,
   selectFilter,
   selectNextPage,
 } from '../redux/cars.selectors';
-import { CarItem } from '../components/CarItem/CarItem';
-import { Filter } from '../components/Filter/Filter';
 import { setNextPage } from '../redux/slice/nextApiPageSlice';
-import { NoContent } from '../components/NoContent/NoContent';
+import { catatlogCarsThunk } from '../redux/cars/carsThunk';
 
 import rentalCars from './pages.module.scss';
+
 const CarsRentPage = () => {
   const dispatch = useDispatch();
   const [carsData, setCarData] = useState([]);

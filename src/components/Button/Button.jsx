@@ -1,10 +1,11 @@
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import b from './Button.module.scss';
 
 import { setIsOpenModal } from '../../redux/slice/isOpenModalSlice';
 import { setCarInfo } from '../../redux/slice/carInfoSlice';
-import { useCallback } from 'react';
 import { setFilter } from '../../redux/slice/filterSlice';
+
+import b from './Button.module.scss';
 
 function Button({ text, car, filterData }) {
   const dispatch = useDispatch();

@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 
-import h from './Header.module.scss';
+import { Container } from '../Container/Container';
 
 import icons from '../../images/icons.svg';
-import { Container } from '../Container/Container';
+
+import h from './Header.module.scss';
 
 function Header() {
   return (

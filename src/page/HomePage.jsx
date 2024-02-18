@@ -1,8 +1,9 @@
 import { Container } from '../components/Container/Container';
 import { Section } from '../components/Section/Section';
-import rentalCars from './pages.module.scss';
+
 import car from '../images/home-foto.png';
 
+import rentalCars from './pages.module.scss';
 const HomePage = () => {
   return (
     <Section title="Ukrainian car rental">
