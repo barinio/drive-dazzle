@@ -3,7 +3,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { selectIsLoading, selectIsOpenModal } from './redux/cars.selectors';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ModalCar } from './components/ModalCar/ModalCar';
 import { Loader } from './components/Loader/Loader';
 
@@ -34,6 +35,7 @@ function App() {
       </Suspense>
       {isOpenModal && <ModalCar />}
       {isLoading && <Loader />}
+      <ToastContainer />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { setCarInfo } from '../../redux/slice/carInfoSlice';
 import { setFilter } from '../../redux/slice/filterSlice';
 
 import b from './Button.module.scss';
+import { toast } from 'react-toastify';
 
 function Button({ text, car, filterData }) {
   const dispatch = useDispatch();
@@ -17,9 +18,7 @@ function Button({ text, car, filterData }) {
 
   const closeModal = useCallback(() => {
     dispatch(setIsOpenModal(false));
-    alert(
-      "You can contact the company by tel: +380730000000 \n\nApologize, it's just my Pet-project, but anyway I want to congratulate you!!! Car rent done succesfull😁🥳🎉"
-    );
+    toast.success('You can contact the company by tel: +380730000000');
   }, [dispatch]);
 
   const filterSearch = () => {

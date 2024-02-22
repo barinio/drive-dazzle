@@ -16,6 +16,8 @@ import { setNextPage } from '../redux/slice/nextApiPageSlice';
 import { catatlogCarsThunk } from '../redux/cars/carsThunk';
 
 import rentalCars from './pages.module.scss';
+import { totalCars } from '../services/api';
+import { toast } from 'react-toastify';
 
 const CarsRentPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,23 @@ const CarsRentPage = () => {
   const responseCarData = useSelector(selectCatalogCarsData);
   const nextPage = useSelector(selectNextPage);
   const filter = useSelector(selectFilter);
+
+  const [totalElements, setTotalElements] = useState(0);
+
+  useEffect(() => {
+    const fetchTotalElements = async () => {
+      try {
+        const total = await totalCars();
+        setTotalElements(total);
+      } catch (error) {
+        toast.error('Error fetching total elements:', error);
+      }
+    };
+    fetchTotalElements();
+  }, []);
+
+  const limit = 12;
+  const lastPage = Math.ceil(totalElements / limit);
 
   useEffect(() => {
     if (responseCarData.length === 0) {
@@ -78,8 +97,10 @@ const CarsRentPage = () => {
                 ))}
               </ul>
             )}
-            {(carsData.length !== 0 && nextPage < 10 && filter.length === 0) ||
-            (nextPage < 10 &&
+            {(carsData.length !== 0 &&
+              nextPage <= lastPage &&
+              filter.length === 0) ||
+            (nextPage <= lastPage &&
               filter.make === null &&
               filter.price === null &&
               filter.minMileage === '' &&
