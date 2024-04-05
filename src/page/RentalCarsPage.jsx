@@ -19,7 +19,7 @@ import rentalCars from './pages.module.scss';
 import { totalCars } from '../services/api';
 import { toast } from 'react-toastify';
 
-const CarsRentPage = () => {
+const RentalCarsPage = () => {
   const dispatch = useDispatch();
   const [carsData, setCarData] = useState([]);
   const responseCarData = useSelector(selectCatalogCarsData);
@@ -116,4 +116,4 @@ const CarsRentPage = () => {
   );
 };
 
-export default CarsRentPage;
+export default RentalCarsPage;
